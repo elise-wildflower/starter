@@ -6,8 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Thing.destroy_all
 
 require 'faker'
-Thing.create(name:Faker::Company.name )
-Thing.create(name:Faker::Company.name )
+50.times do
+  Thing.create(name:Faker::Company.name )
+end
