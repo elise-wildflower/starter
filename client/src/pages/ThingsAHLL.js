@@ -1,6 +1,9 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
+import { Card, CardContent, CardHeader, Header } from 'semantic-ui-react';
 import ListLoader from '../components/ListLoader';
+import styled from 'styled-components';
+import ContactButtons from '../components/ContactButtons';
+import { primaryColor } from '../components/Colors';
 
 const ThingsAHLL = () => {
   return (
@@ -10,9 +13,13 @@ const ThingsAHLL = () => {
         url="/api/things"
         renderData={(t) => {
           return (
-            <Card>
-              <p>Name: {t.name}</p>
-            </Card>
+              <CardSpace>
+                <CardContent>
+                  <CardHeader>Name: {t.name}</CardHeader>
+                  <Card.Meta>works in -job-</Card.Meta>
+                  <ContactButtons />
+                </CardContent>
+              </CardSpace>
           );
         }}
         />
@@ -21,3 +28,7 @@ const ThingsAHLL = () => {
 };
 
 export default ThingsAHLL;
+
+const CardSpace = styled(Card)`
+  margin: 25px !important;
+` 

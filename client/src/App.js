@@ -1,12 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import { Container } from "semantic-ui-react";
 import { Route, Switch } from "react-router";
-import Home from "./components/Home";
-import Things from "./components/Things";
-import ThingsWithAxiosHook from "./pages/ThingsWithAxiosHook";
+import Home from "./pages/Home";
 import ThingsAHLL from "./pages/ThingsAHLL";
+import NavBar from "./pages/NavBar";
+import Examples from "./pages/Examples";
 
 function App() {
   return (
@@ -16,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/things" component={ThingsAHLL} />
+          <Route exact path="/examples" component={Examples} />
           <Route component={() => <p>react router 404 path not found</p>} />
         </Switch>
       </Container>

@@ -12,7 +12,7 @@ const useAxiosOnMount = (url) => {
 
   const getData = async () => {
     try {
-      // reset errot
+      // reset error
       setError(null);
       let res = await axios.get(url);
       // this will not work if it doesn't as res.data.data or res.data
