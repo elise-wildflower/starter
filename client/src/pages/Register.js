@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Message, Segment } from "semantic-ui-react";
 import { AuthContext } from "../providers/AuthProvider";
 import { useHistory } from "react-router";
 
@@ -8,7 +8,7 @@ const Register = (props) => {
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("123456");
   const [passwordConfirmation, setPasswordConfirmation] = useState("123456");
-  const { handleRegister } = useContext(AuthContext);
+  const { handleRegister , error , loading} = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     if (password !== passwordConfirmation) {
@@ -19,7 +19,14 @@ const Register = (props) => {
   };
   return (
     <div>
-      <h1>register</h1>
+      <h1>Register</h1>
+       {error && (
+        <Message negative>
+        <code>
+          {JSON.stringify(error)}
+        </code>
+      </Message>)
+        }
       <Form onSubmit={handleSubmit}>
         <Form.Input
           value={email}
@@ -42,7 +49,7 @@ const Register = (props) => {
           }}
           label={"Password Confirmation"}
         />
-        <Button>Register</Button>
+        <Button loading={loading} disabled={loading}>Register</Button>
       </Form>
     </div>
   );

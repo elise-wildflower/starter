@@ -7,7 +7,7 @@ const Login = (props) => {
   const history = useHistory();
   const [email, setEmail] = useState("test@test.com");
   const [password, setPassword] = useState("123456");
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin , loading} = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     handleLogin({ email, password }, history);
@@ -30,7 +30,7 @@ const Login = (props) => {
           }}
           label={"Password"}
         />
-        <Button>Login</Button>
+        <Button loading={loading} disabled={loading}>Login</Button>
       </Form>
     </div>
   );
